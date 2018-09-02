@@ -5,13 +5,15 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../data/gabebook.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+STATIC_DIR = '../static'
+
 with app.app_context():
     db.init_app(app)
     #db.create_all()
 
 @app.route('/')
 def home():
-    return 'Hello World!'
+    return send_from_directory(STATIC_DIR + '/html', 'index.html')
 
 @app.route('/api/v1/p')
 def people():
@@ -33,11 +35,11 @@ def person(person):
 
 @app.route('/js/<path:filename>')
 def send_css(filename):
-    return send_from_directory('../static/js', filename)
+    return send_from_directory(STATIC_DIR+'/js', filename)
 
 @app.route('/js/<path:filename>')
 def send_js(filename):
-    return send_from_directory('../static/css', filename)
+    return send_from_directory(STATIC_DIR+'/css', filename)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port='8000', debug=True)
