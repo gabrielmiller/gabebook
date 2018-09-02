@@ -1,10 +1,13 @@
-from models import db, person
+from models import db, entry, person
 from flask import Flask, send_from_directory
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data/gabebook.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../data/gabebook.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db.init_app(app)
+
+with app.app_context():
+    db.init_app(app)
+    #db.create_all()
 
 @app.route('/')
 def home():
