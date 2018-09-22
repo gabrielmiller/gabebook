@@ -33,13 +33,13 @@ def person(person):
     else:
         return ''
 
-@app.route('/js/<path:filename>')
+@app.route('/css/<path:filename>')
 def send_css(filename):
-    return send_from_directory(STATIC_DIR+'/js', filename)
+    return send_from_directory(STATIC_DIR+'/css', filename)
 
 @app.route('/js/<path:filename>')
 def send_js(filename):
-    return send_from_directory(STATIC_DIR+'/css', filename)
+    return send_from_directory(STATIC_DIR+'/js', filename)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port='8000', debug=True)
