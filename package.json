@@ -9,7 +9,7 @@
         "node": "10.11.0"
     },
     "scripts": {
-        "install": "node node_modules/webpack/bin/webpack.js"
+        "start": "node node_modules/webpack/bin/webpack.js"
     },
     "devDependencies": {
         "@angular/animations": "6.1.0",
@@ -46,6 +46,7 @@
         "webpack": "4.19.1",
         "webpack-cli": "3.1.0",
         "ts-loader": "5.1.1",
-        "copy-webpack-plugin": "4.5.2"
+        "copy-webpack-plugin": "4.5.2",
+        "@ngtools/webpack": "6.2.3"
     }
 }
