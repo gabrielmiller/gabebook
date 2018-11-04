@@ -2,7 +2,7 @@
     <form
         @submit="checkForm">
         <div>
-            <h1>New entry</h1>
+            <h1>Editing entry: {{ id }}</h1>
             <input
                 @keydown="isDirty = true"
                 placeholder="Title"
@@ -45,6 +45,7 @@ import { Component, Vue } from 'vue-property-decorator';
             editorConfig: {
                 toolbar: ["bold", "italic", "heading", "|", "quote", "code", "unordered-list", "ordered-list", "|", "link", "image", "|", "preview"],
             },
+            id: this.$route.params.id,
             isDirty: false,
             tags: "",
             title: "",
@@ -70,6 +71,6 @@ import { Component, Vue } from 'vue-property-decorator';
         }
     }
 })
-export default class New extends Vue {
+export default class Edit extends Vue {
 }
 </script>
