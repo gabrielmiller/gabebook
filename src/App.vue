@@ -1,14 +1,28 @@
 <template>
     <div id="app">
-        <input type='checkbox' id='sidebar-checkbox'>
-        <label id='sidebar-toggle' for="sidebar-checkbox">
+        <input id='sidebar-checkbox' type='checkbox' v-model="isSidebarOpen">
+        <label for="sidebar-checkbox" id='sidebar-toggle'>
             <icon-menu></icon-menu>
         </label>
         <div id="sidebar">
             <ul>
-                <li><router-link to="/new"><icon-plus></icon-plus> Create New</router-link></li>
-                <li><router-link to="/">Home</router-link></li>
-                <li><router-link to="/people"><icon-people></icon-people>People</router-link></li>
+                <li class="divider"></li>
+                <li>
+                    <router-link to="/new">
+                        <icon-plus></icon-plus> <span>Create New</span>
+                    </router-link>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <router-link to="/">
+                        <icon-home></icon-home> <span>Home</span>
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/people">
+                        <icon-people></icon-people> <span>People</span>
+                    </router-link>
+                </li>
             </ul>
         </div>
         <div id="content">
@@ -16,3 +30,23 @@
         </div>
     </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+import Component from 'vue-class-component'
+
+@Component({
+    data() {
+        return {
+            isSidebarOpen: false,
+        };
+    },
+    watch: {
+        '$route' (to, from) {
+            this.$data.isSidebarOpen = false;
+        }
+    }
+})
+export default class App extends Vue {}
+
+</script>

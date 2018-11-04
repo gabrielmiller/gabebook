@@ -14,7 +14,7 @@ h1 {
 }
 
 svg {
-    width: 1em;
+    width: 2em;
 }
 
 #sidebar-checkbox {
@@ -46,14 +46,43 @@ svg {
     z-index: 1;
 }
 
+#sidebar ul {
+    padding-left: 0;
+}
+
 #sidebar li {
     list-style: none;
-    padding: .25em;
+    padding: .25em 0;
+}
+
+#sidebar li.divider {
+    margin: 0 1em;
+    padding: 0;
+    border-bottom: 1px dotted #3d7e9a;
 }
 
 #sidebar a {
+    border: 1px solid transparent;
+    border-radius: 2px;
     color: #3d7e9a;
+    display: block;
+    margin: 0 .5em 0;
+    padding: .5em;
     text-decoration: none;
+}
+
+#sidebar a:hover {
+    background-color: #d9f0fa;
+    border: 1px dotted #3d7e9a;
+}
+
+#sidebar svg {
+    margin-right: 1em;
+}
+
+#sidebar span {
+    line-height: 2em;
+    vertical-align: top;
 }
   
 #sidebar-checkbox:checked ~ #sidebar {
