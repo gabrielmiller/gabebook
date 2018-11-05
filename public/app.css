@@ -95,3 +95,13 @@ svg {
     padding: 0 4em;
     z-index: 0;
 }
+
+input {
+    border: 1px solid #dddddd;
+    border-radius: 2px;
+    box-sizing: border-box;
+    display: block;
+    margin: 1em 0;
+    padding: 1em;
+    width: 100%;
+}
