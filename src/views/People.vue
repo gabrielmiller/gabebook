@@ -4,13 +4,11 @@
     </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import Component from 'vue-class-component'
-import Axios from 'axios';
+<script>
+// import Axios from 'axios';
 
-@Component({
-    beforeRouteEnter(to: any, from: any, next: Function) {
+export default {
+    beforeRouteEnter(to, from, next) {
         console.log("loading...");
         Axios.get('/people').then(() => {
             console.log("loaded!");
@@ -19,15 +17,12 @@ import Axios from 'axios';
             console.log("loading failed");
         });
     },
-    beforeRouteUpdate(to: any, from: any, next: Function) {
+    beforeRouteUpdate(to, from, next) {
         console.log("loading...");
         setTimeout(() => {
             console.log("loaded!");
             next();
         }, 2000);
     }
-})
-export default class People extends Vue {
 }
-
 </script>

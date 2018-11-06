@@ -1,4 +1,4 @@
-/* tslint:disable:no-console */
+/* eslint:disable no-console */
 
 import { register } from 'register-service-worker';
 
@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === 'production') {
         offline() {
             console.log('No internet connection found. App is running in offline mode.');
         },
-        error(error: any) {
+        error(error) {
             console.error('Error during service worker registration:', error);
         },
     });

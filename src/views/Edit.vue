@@ -25,11 +25,9 @@
     </form>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-
-@Component({
-    beforeRouteLeave(to: any, from: any, next: Function) {
+<script>
+export default {
+    beforeRouteLeave(to, from, next) {
         let leave = true;
 
         if (this.$data.isDirty) {
@@ -53,7 +51,7 @@ import { Component, Vue } from 'vue-property-decorator';
         }
     },
     methods: {
-        checkForm($event: any): boolean {
+        checkForm($event) {
             $event.preventDefault();
 
             if (this.$data.title.length === 0) {
@@ -70,7 +68,5 @@ import { Component, Vue } from 'vue-property-decorator';
             return true;
         }
     }
-})
-export default class Edit extends Vue {
 }
 </script>

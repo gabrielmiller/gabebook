@@ -31,17 +31,8 @@
     </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import Component from 'vue-class-component'
-
-Component.registerHooks([
-    'beforeRouteEnter',
-    'beforeRouteLeave',
-    'beforeRouteUpdate',
-]);
-
-@Component({
+<script>
+export default {
     data() {
         return {
             isSidebarOpen: false,
@@ -52,7 +43,5 @@ Component.registerHooks([
             this.$data.isSidebarOpen = false;
         }
     }
-})
-export default class App extends Vue {}
-
+}
 </script>
