@@ -39,7 +39,7 @@ export default {
         };
     },
     watch: {
-        '$route' (to, from) {
+        '$route' () {
             this.$data.isSidebarOpen = false;
         }
     }

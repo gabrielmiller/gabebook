@@ -5,21 +5,21 @@
 </template>
 
 <script>
-// import Axios from 'axios';
+import Axios from 'axios';
 
 export default {
-    beforeRouteEnter(to, from, next) {
+    beforeRouteEnter(to, from, next) {// eslint-disable-next-line
         console.log("loading...");
-        Axios.get('/people').then(() => {
+        Axios.get('/people').then(() => {// eslint-disable-next-line
             console.log("loaded!");
             next();
-        }, () => {
+        }, () => {// eslint-disable-next-line
             console.log("loading failed");
         });
     },
-    beforeRouteUpdate(to, from, next) {
+    beforeRouteUpdate(to, from, next) {// eslint-disable-next-line
         console.log("loading...");
-        setTimeout(() => {
+        setTimeout(() => {// eslint-disable-next-line
             console.log("loaded!");
             next();
         }, 2000);

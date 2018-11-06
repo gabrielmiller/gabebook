@@ -60,7 +60,7 @@ export default {
             if (this.$data.post.length === 0) {
                 return false;
             }
-
+            // eslint-disable-next-line
             console.log("saving!");
             // reset this.$data.isDirty
 
