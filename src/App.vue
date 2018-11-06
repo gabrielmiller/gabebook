@@ -2,25 +2,25 @@
     <div id="app">
         <input id='sidebar-checkbox' type='checkbox' v-model="isSidebarOpen">
         <label for="sidebar-checkbox" id='sidebar-toggle'>
-            <icon-menu></icon-menu>
+            <i class="fa fa-2x fa-bars"></i>
         </label>
         <div id="sidebar">
             <ul>
                 <li class="divider"></li>
                 <li>
                     <router-link to="/new">
-                        <icon-plus></icon-plus> <span>Create New</span>
+                        <i class="fa fa-2x fa-plus-circle"></i> <span>Create New</span>
                     </router-link>
                 </li>
                 <li class="divider"></li>
                 <li>
                     <router-link to="/">
-                        <icon-home></icon-home> <span>Home</span>
+                        <i class="fa fa-2x fa-home"></i> <span>Home</span>
                     </router-link>
                 </li>
                 <li>
                     <router-link to="/people">
-                        <icon-people></icon-people> <span>People</span>
+                        <i class="fa fa-2x fa-users"></i> <span>People</span>
                     </router-link>
                 </li>
             </ul>

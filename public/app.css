@@ -9,28 +9,16 @@ p {
     line-height: 1.4em;
 }
 
-h1 {
-    margin: .42em 0;
-}
-
-svg {
-    width: 2em;
-}
-
 #sidebar-checkbox {
     display: none;
 }
   
 #sidebar-toggle {
     display: block;
-    left: 1em;
+    left: 1.5em;
     position: absolute;
-    top: 1em;
+    top: 1.5em;
     z-index: 4;
-}
-
-#sidebar-toggle svg {
-    width: 2em;
 }
   
 #sidebar {
@@ -66,7 +54,7 @@ svg {
     border-radius: 2px;
     color: #3d7e9a;
     display: block;
-    margin: 0 .5em 0;
+    margin: 0 1em 0;
     padding: .5em;
     text-decoration: none;
 }
@@ -76,7 +64,8 @@ svg {
     border: 1px dotted #3d7e9a;
 }
 
-#sidebar svg {
+#sidebar i {
+    width: 1em;
     margin-right: 1em;
 }
 
@@ -92,7 +81,7 @@ svg {
 #content {
     margin: 0 auto;
     max-width: 36em;
-    padding: 0 4em;
+    padding: 0 4.5em;
     z-index: 0;
 }
 
