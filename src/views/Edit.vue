@@ -27,17 +27,6 @@
 
 <script>
 export default {
-    beforeRouteLeave(to, from, next) {
-        let leave = true;
-
-        if (this.$data.isDirty) {
-            leave = confirm("Are you sure you want to leave?");
-        }
-
-        if (leave) {
-            next();
-        }
-    },
     data() {
         return {
             editorConfig: {

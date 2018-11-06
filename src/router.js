@@ -8,29 +8,43 @@ import People from './views/People.vue';
 
 Vue.use(Router);
 
+function beforeLeave(to, from, next) {
+    let leave = true;
+
+    if (this.$data.isDirty) {
+        leave = confirm("Are you sure you want to leave?");
+    }
+
+    if (leave) {
+        next();
+    }
+}
+
 export default new Router({
     mode: 'history',
     base: process.env.BASE_URL,
     routes: [
         {
-            path: '/edit/:id',
-            name: 'edit',
+            beforeLeave: beforeLeave,
             component: Edit,
+            name: 'edit',
+            path: '/edit/:id',
         },
         {
-            path: '/',
-            name: 'home',
             component: Home,
+            name: 'home',
+            path: '/',
         },
         {
-            path: '/new',
-            name: 'new',
+            beforeLeave: beforeLeave,
             component: New,
+            name: 'new',
+            path: '/new',
         },
         {
-            path: '/people',
-            name: 'people',
             component: People,
+            name: 'people',
+            path: '/people',
         },
     ],
 });
