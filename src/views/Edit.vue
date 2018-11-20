@@ -27,6 +27,9 @@
 
 <script>
 export default {
+    created() {
+        this.people = this.$parent.people;
+    },
     data() {
         return {
             editorConfig: {

@@ -9,7 +9,6 @@ import Person from './views/Person.vue';
 
 Vue.use(Router);
 
-// eslint-disable-next-line
 function beforeMarkdownEditorLeave(to, from, next) {
     let leave = true;
 

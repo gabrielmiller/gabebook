@@ -7,7 +7,8 @@
 
 <script>
 export default {
-    created() {// eslint-disable-next-line
+    created() {
+        // eslint-disable-next-line
         console.log("created");
         this.people = this.$parent.people;
     },
