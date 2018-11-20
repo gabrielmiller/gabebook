@@ -1,10 +1,14 @@
 <template>
     <div id="app">
-        <input id='sidebar-checkbox' type='checkbox' v-model="isSidebarOpen">
+        <input
+            class="invisible-toggle"
+            id='sidebar-checkbox'
+            type='checkbox'
+            v-model="isSidebarOpen">
         <label for="sidebar-checkbox" id='sidebar-toggle'>
             <i class="fa fa-2x fa-bars"></i>
         </label>
-        <div id="sidebar">
+        <div class="ease-slide sidebar toggle-content" id="sidebar">
             <div class="title">
                 <span>{{ title }}</span>
             </div>
@@ -39,17 +43,11 @@ import mockData from './mockData';
 
 export default {
     beforeCreate() {
-        // eslint-disable-next-line
-        console.log("beforeCreate");
-        return mockData.getAllPeople().then((result) => {
+        return mockData.fetchAllPeople().then((result) => {
             for (let person of result) {
                 this.people.push(person);
             }
         });
-    },
-    created() {
-        // eslint-disable-next-line
-        console.log("created", this);
     },
     data() {
         return {

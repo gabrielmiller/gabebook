@@ -15,10 +15,6 @@ p {
     font-family: serif;
     line-height: 1.4em;
 }
-
-#sidebar-checkbox {
-    display: none;
-}
   
 #sidebar-toggle {
     display: block;
@@ -28,7 +24,7 @@ p {
     z-index: 4;
 }
   
-#sidebar {
+.sidebar {
     background-color: #ffffff;
     border-right: 4px solid #aaaaaa;
     bottom: 0;
@@ -36,27 +32,26 @@ p {
     padding-top: 3em;
     position: absolute;
     top: 0;
-    transition: left .2s ease-in-out;
     width: 16em;
     z-index: 3;
 }
 
-#sidebar ul {
+.sidebar ul {
     padding-left: 0;
 }
 
-#sidebar li {
+.sidebar li {
     list-style: none;
     padding: .25em 0;
 }
 
-#sidebar li.divider {
+.sidebar li.divider {
     margin: 0 1em;
     padding: 0;
     border-bottom: 1px dotted #3d7e9a;
 }
 
-#sidebar a {
+.sidebar a {
     border: 1px solid transparent;
     border-radius: 2px;
     color: #3d7e9a;
@@ -66,34 +61,34 @@ p {
     text-decoration: none;
 }
 
-#sidebar a:hover {
+.sidebar a:hover {
     background-color: #d9f0fa;
     border: 1px dotted #3d7e9a;
 }
 
-#sidebar i {
+.sidebar i {
     text-align: center;
     margin-right: .4em;
     width: 1em;
 }
 
-#sidebar span {
+.sidebar span {
     line-height: 2em;
     vertical-align: top;
 }
   
-#sidebar-checkbox:checked ~ #sidebar {
+.invisible-toggle:checked ~ .toggle-content {
     left: 0;
 }
 
-#sidebar .title {
+.sidebar .title {
     position: absolute;
     right: 0;
     top: 0;
     width: 12.5em;
 }
 
-#sidebar .title span {
+.sidebar .title span {
     font-size: 2em;
     font-weight: bold;
 }
@@ -140,4 +135,17 @@ button[class*="-button"] {
     border-radius: 2px;
     color: white;
     padding: .5em 1em;
+}
+
+.super {
+    font-size: .5em;
+    vertical-align: super;
+}
+
+.invisible-toggle {
+    display: none;
+}
+
+.ease-slide {
+    transition: left .2s ease-in-out;
 }

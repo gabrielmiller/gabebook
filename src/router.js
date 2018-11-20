@@ -32,6 +32,12 @@ export default new Router({
             path: '/edit/:entryId',
         },
         {
+            //beforeLeave: beforeMarkdownEditorLeave,
+            component: Person,
+            name: 'Edit Person',
+            path: '/person/:personId/edit',
+        },
+        {
             component: Home,
             name: 'Home',
             path: '/',
@@ -41,6 +47,12 @@ export default new Router({
             component: New,
             name: 'New Entry',
             path: '/new',
+        },
+        {
+            //beforeLeave: beforeMarkdownEditorLeave,
+            component: Person,
+            name: 'New Person',
+            path: '/person/new',
         },
         {
             component: People,
