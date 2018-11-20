@@ -2,7 +2,7 @@
     <form
         @submit="checkForm">
         <div>
-            <h1>Editing entry: {{ id }}</h1>
+            <h1>Editing entry: {{ entryId }}</h1>
             <input
                 @keydown="isDirty = true"
                 placeholder="Title"
@@ -32,7 +32,7 @@ export default {
             editorConfig: {
                 toolbar: ["bold", "italic", "heading", "|", "quote", "code", "unordered-list", "ordered-list", "|", "link", "image", "|", "preview"],
             },
-            id: this.$route.params.id,
+            entryId: this.$route.params.entryId,
             isDirty: false,
             tags: "",
             title: "",

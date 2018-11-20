@@ -1,22 +1,23 @@
 <template>
     <div>
-        <div v-for="person in people">
-            <span>{{ person.name }}</span>
-        </div>
+        <ul>
+            <li v-for="person in people" :key="person.id">
+                <router-link :to="{ name: 'Person', params: { personId: person.id }}">
+                    <span>{{ person.name }}</span>
+                </router-link>
+            </li>
+        </ul>
     </div>
 </template>
 
 <script>
 export default {
-    created() {// eslint-disable-next-line
-        console.log("created!", this);
+    created() {
+        this.people = this.$parent.people;
     },
     data() {
         return {
-            people: [
-                { id: 1, name: 'Gerb Merrer' },
-                { id: 2, name: 'bonecrusher' }
-            ]
+            people: []
         };
     }
 }

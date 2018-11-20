@@ -3,9 +3,6 @@
         <input id='sidebar-checkbox' type='checkbox' v-model="isSidebarOpen">
         <label for="sidebar-checkbox" id='sidebar-toggle'>
             <i class="fa fa-2x fa-bars"></i>
-            <!--
-            <span>{{ title }}</span>
-            -->
         </label>
         <div id="sidebar">
             <div class="title">
@@ -38,10 +35,25 @@
 </template>
 
 <script>
+import mockData from './mockData';
+
 export default {
+    beforeCreate() {// eslint-disable-next-line
+        console.log("beforeCreate");
+        return mockData.getAllPeople().then((result) => {
+            //this.people = result;
+            for (let person of result) {
+                this.people.push(person);
+            }
+        });
+    },
+    created() {// eslint-disable-next-line
+        console.log("created", this);
+    },
     data() {
         return {
-            isSidebarOpen: false
+            isSidebarOpen: false,
+            people: []
         };
     },
     computed: {

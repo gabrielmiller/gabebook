@@ -5,9 +5,7 @@ import Edit from './views/Edit.vue';
 import Home from './views/Home.vue';
 import New from './views/New.vue';
 import People from './views/People.vue';
-
-//import Axios from 'axios';
-import mockData from './mockData';
+import Person from './views/Person.vue';
 
 Vue.use(Router);
 
@@ -24,26 +22,6 @@ function beforeMarkdownEditorLeave(to, from, next) {
     }
 }
 
-function loadPeople(to, from, next) {
-    return mockData.getAllPeople().then((result) => {// eslint-disable-next-line
-        console.log("get all people called", result);
-        next(vm => {// eslint-disable-next-line
-            console.log("vm is ", vm);
-            //vm.$data.people = result;
-        });
-        //this.$data.people = result;
-    });
-    /*
-    console.log("loading...");
-    Axios.get('/people').then(() => {// eslint-disable-next-line
-        console.log("loaded!");
-        next();
-    }, () => {// eslint-disable-next-line
-        console.log("loading failed");
-    });
-    */
-}
-
 export default new Router({
     mode: 'history',
     base: process.env.BASE_URL,
@@ -52,7 +30,7 @@ export default new Router({
             beforeLeave: beforeMarkdownEditorLeave,
             component: Edit,
             name: 'Edit Entry',
-            path: '/edit/:id',
+            path: '/edit/:entryId',
         },
         {
             component: Home,
@@ -66,11 +44,14 @@ export default new Router({
             path: '/new',
         },
         {
-            beforeEnter: loadPeople,
-            beforeUpdate: loadPeople,
             component: People,
             name: 'People',
             path: '/people',
+        },
+        {
+            component: Person,
+            name: 'Person',
+            path: '/person/:personId',
         },
     ],
 });
