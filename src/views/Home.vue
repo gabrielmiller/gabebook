@@ -1,6 +1,5 @@
 <template>
     <div>
-        <h1>Home</h1>
         <p>Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here Content will eventually go here </p>
         <p>maybe a widget?</p>
         <p>maybe some pertinent dates?</p>

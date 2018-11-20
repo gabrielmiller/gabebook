@@ -1,28 +1,23 @@
 <template>
     <div>
-        <h1>People</h1>
+        <div v-for="person in people">
+            <span>{{ person.name }}</span>
+        </div>
     </div>
 </template>
 
 <script>
-import Axios from 'axios';
-
 export default {
-    beforeRouteEnter(to, from, next) {// eslint-disable-next-line
-        console.log("loading...");
-        Axios.get('/people').then(() => {// eslint-disable-next-line
-            console.log("loaded!");
-            next();
-        }, () => {// eslint-disable-next-line
-            console.log("loading failed");
-        });
+    created() {// eslint-disable-next-line
+        console.log("created!", this);
     },
-    beforeRouteUpdate(to, from, next) {// eslint-disable-next-line
-        console.log("loading...");
-        setTimeout(() => {// eslint-disable-next-line
-            console.log("loaded!");
-            next();
-        }, 2000);
+    data() {
+        return {
+            people: [
+                { id: 1, name: 'Gerb Merrer' },
+                { id: 2, name: 'bonecrusher' }
+            ]
+        };
     }
 }
 </script>

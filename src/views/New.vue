@@ -2,7 +2,6 @@
     <form
         @submit="checkForm">
         <div>
-            <h1>New entry</h1>
             <input
                 @keydown="isDirty = true"
                 placeholder="Title"

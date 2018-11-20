@@ -3,13 +3,19 @@
         <input id='sidebar-checkbox' type='checkbox' v-model="isSidebarOpen">
         <label for="sidebar-checkbox" id='sidebar-toggle'>
             <i class="fa fa-2x fa-bars"></i>
+            <!--
+            <span>{{ title }}</span>
+            -->
         </label>
         <div id="sidebar">
+            <div class="title">
+                <span>{{ title }}</span>
+            </div>
             <ul>
                 <li class="divider"></li>
                 <li>
                     <router-link to="/new">
-                        <i class="fa fa-2x fa-plus-circle"></i> <span>Create New</span>
+                        <i class="fa fa-2x fa-plus-circle"></i> <span>New Entry</span>
                     </router-link>
                 </li>
                 <li class="divider"></li>
@@ -35,8 +41,13 @@
 export default {
     data() {
         return {
-            isSidebarOpen: false,
+            isSidebarOpen: false
         };
+    },
+    computed: {
+        title: function() {
+            return this.$route.name;
+        }
     },
     watch: {
         '$route' () {
