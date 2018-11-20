@@ -12,10 +12,11 @@
                 Overview
             </label>
             <input
+                checked="true"
                 class="invisible-toggle"
                 id="overview"
                 type="checkbox">
-            <ul class="accordion ease-slide">
+            <ul class="accordion ease-slide accordion">
                 <li v-if="person.age">Age: {{person.age}}</li>
                 <li v-if="person.gender">Identifies as: {{person.gender}}</li>
                 <li v-if="person.knowFrom">Know from: {{person.knowFrom}}</li>
@@ -33,10 +34,11 @@
                 Profession
             </label>
             <input
+                checked="true"
                 class="invisible-toggle"
                 id="profession"
                 type="checkbox">
-            <ul class="accordion ease-slide">
+            <ul class="accordion ease-slide accordion">
                 <li v-if="person.jobTitle">Job: {{person.jobTitle}}</li>
                 <li v-if="person.jobDescription">Description: {{person.jobDescription}}</li>
             </ul>

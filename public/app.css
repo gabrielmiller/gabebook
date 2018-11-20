@@ -76,10 +76,6 @@ p {
     line-height: 2em;
     vertical-align: top;
 }
-  
-.invisible-toggle:checked ~ .toggle-content {
-    left: 0;
-}
 
 .sidebar .title {
     position: absolute;
@@ -146,6 +142,32 @@ button[class*="-button"] {
     display: none;
 }
 
+.invisible-toggle:checked ~ .toggle-content {
+    left: 0;
+}
+
+.invisible-toggle:checked ~ .accordion {
+    /*display: none;*/
+    height: 0;
+    overflow: hidden;
+}
+
+.accordion {
+    height: 100%;
+}
+
 .ease-slide {
     transition: left .2s ease-in-out;
+}
+
+.ease-slide.accordion {
+      max-height: 1000px;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.invisible-toggle:checked ~ .ease-slide.accordion {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .2s ease-in-out;
 }
