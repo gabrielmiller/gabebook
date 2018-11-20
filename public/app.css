@@ -1,3 +1,4 @@
+/* mobile: 393 x 658 */
 @media screen and (max-width: 25em) {
     .markdown-editor i.separator {
         display: none;
@@ -112,4 +113,31 @@ input {
     margin: 1em 0;
     padding: 1em;
     width: 100%;
+}
+
+.markdown-editor .CodeMirror,
+.markdown-editor .CodeMirror-scroll {
+    max-height: 13em;
+    min-height: 13em;
+}
+
+.markdown-editor .editor-statusbar {
+    display: none;
+}
+
+.save-button {
+    float: right;
+    margin-top: 1em;
+}
+
+.save-button i {
+    margin-right: .1em;
+}
+
+button[class*="-button"] {
+    background-color: #1793d1;
+    border: 1px solid #75caf4;
+    border-radius: 2px;
+    color: white;
+    padding: .5em 1em;
 }

@@ -9,10 +9,15 @@
                 type="text"
                 v-model="title">
             <input
-            @keydown="isDirty = true"
+                @keydown="isDirty = true"
                 placeholder="Tags"
                 type="text"
                 v-model="tags">
+            <input
+                @keydown="isDirty = true"
+                placeholder="Regarding"
+                type="text"
+                v-model="regarding">
             <markdown-editor
                 :highlight="false"
                 :configs="editorConfig"
@@ -20,7 +25,7 @@
                 v-model="post">
             </markdown-editor>
         </div>
-        <button type="submit">Save</button>
+        <button class="save-button" type="submit"><i class="fa fa-floppy-o"></i> Save</button>
     </form>
 </template>
 
@@ -32,6 +37,7 @@ export default {
                 toolbar: ["bold", "italic", "heading", "|", "quote", "code", "unordered-list", "ordered-list", "|", "link", "image", "|", "preview"],
             },
             isDirty: false,
+            regarding: [],
             tags: "",
             title: "",
             post: "",
