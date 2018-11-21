@@ -1,50 +1,72 @@
 <template>
     <div>
         <h1>
-            {{person.name}}
-            <router-link :to="{ name: 'Edit Person', params: { personId: person.id }}">
-                <i class="super fa fa-pencil"></i>
-            </router-link>
+            {{model.person.name}}
+            <button
+                class="link-button edit-pencil"
+                type="button"
+                v-if="!isEditing"
+                v-on:click="toggleEdit">
+                <i class="fa fa-pencil"></i>
+            </button>
         </h1>
-        <div class="person-details">
-            <label
-                for="overview">
-                Overview
-            </label>
-            <input
-                checked="true"
-                class="invisible-toggle"
-                id="overview"
-                type="checkbox">
-            <ul class="accordion ease-slide accordion">
-                <li v-if="person.age">Age: {{person.age}}</li>
-                <li v-if="person.gender">Identifies as: {{person.gender}}</li>
-                <li v-if="person.knowFrom">Know from: {{person.knowFrom}}</li>
-                <li v-if="person.metPlace">Met at: {{person.metPlace}}</li>
-                <li v-if="person.metDate">Met on: {{person.metDate}}</li>
-                <li v-if="person.livesIn">Lives in: {{person.livesIn}}</li>
-                <li v-if="person.from">From: {{person.from}}</li>
-                <li v-if="person.studied">Studied {{person.studied}}</li>
-                <li v-if="person.college">Studied at {{person.college}}</li>
-            </ul>
+
+        <div v-if="!isEditing">
+            <div class="person-details">
+                <label
+                    class="hover"
+                    for="overview">
+                    Overview
+                </label>
+                <input
+                    class="invisible-toggle"
+                    id="overview"
+                    type="checkbox">
+                <ul class="accordion ease-slide">
+                    <li v-if="model.person.age">Age: {{model.person.age}}</li>
+                    <li v-if="model.person.gender">Identifies as: {{model.person.gender}}</li>
+                    <li v-if="model.person.knowFrom">Know from: {{model.person.knowFrom}}</li>
+                    <li v-if="model.person.metPlace">Met at: {{model.person.metPlace}}</li>
+                    <li v-if="model.person.metDate">Met on: {{model.person.metDate}}</li>
+                    <li v-if="model.person.livesIn">Lives in: {{model.person.livesIn}}</li>
+                    <li v-if="model.person.from">From: {{model.person.from}}</li>
+                    <li v-if="model.person.studied">Studied {{model.person.studied}}</li>
+                    <li v-if="model.person.college">Studied at {{model.person.college}}</li>
+                </ul>
+            </div>
+            <div class="person-details">
+                <label
+                    class="hover"
+                    for="profession">
+                    Profession
+                </label>
+                <input
+                    class="invisible-toggle"
+                    id="profession"
+                    type="checkbox">
+                <ul class="accordion ease-slide">
+                    <li v-if="model.person.jobTitle">Job: {{model.person.jobTitle}}</li>
+                    <li v-if="model.person.jobDescription">Description: {{model.person.jobDescription}}</li>
+                </ul>
+            </div>
         </div>
-        <div class="person-details">
-            <label
-                for="profession">
-                Profession
-            </label>
-            <input
-                checked="true"
-                class="invisible-toggle"
-                id="profession"
-                type="checkbox">
-            <ul class="accordion ease-slide accordion">
-                <li v-if="person.jobTitle">Job: {{person.jobTitle}}</li>
-                <li v-if="person.jobDescription">Description: {{person.jobDescription}}</li>
-            </ul>
+
+        <div v-if="isEditing">
+            <form v-on:submit="saveEdit">
+                Is editing!
+                <button
+                    class="primary-button save-button"
+                    :disabled="isSaving"
+                    type="submit">
+                    <i class="fa fa-floppy-o"></i> Save
+                </button>
+            </form>
         </div>
-        <span>id: {{personId}}</span>
-        <pre style="white-space:pre-wrap;">{{JSON.stringify(person)}}</pre>
+
+        <div>
+            <span>id: {{model.id}}</span>
+            <pre style="white-space:pre-wrap;word-wrap:break-word;">{{JSON.stringify(model.person)}}</pre>
+        </div>
     </div>
 </template>
 
@@ -62,28 +84,65 @@ function loadPerson(personId) {
 }
 export default {
     beforeRouteEnter(to, from, next) {
-        loadPerson(to.params.personId).then((person) => {
+        loadPerson(to.params.personId).then((person => {
             next(vm => {
-                vm.person = person;
+                vm.model.person = person;
             });
-        });
+        }));
     },
     beforeRouteUpdate(to, from, next) {
-        loadPerson(to.params.personId).then((person) => {
+        loadPerson(to.params.personId).then((person => {
             next(vm => {
-                vm.person = person;
+                vm.model.person = person;
             });
-        });
+        }));
     },
     created() {
         this.people = this.$parent.people;
     },
-    data() {
-        return {
-            people: [],
-            person: {},
-            personId: this.$route.params.personId,
+    computed: {
+        isEditing: function() {
+            return this.state.isEditing;
+        },
+        isNew: function() {
+            return this.state.isNew;
+        },
+        isSaving: function() {
+            return this.state.isSaving;
         }
     },
+    data() {
+        return {
+            model: {
+                people: [],
+                person: {},
+                id: this.$route.params.personId,
+            },
+            state: {
+                isEditing: false,
+                isNew: false,
+                isSaving: false,
+            }
+        }
+    },
+    methods: {
+        saveEdit: function(event) {
+            event.preventDefault();
+            this.state.isSaving = true;
+
+            let p = new Promise((resolve) => {
+                setTimeout(() => {
+                    this.state.isEditing = false;
+                    this.state.isSaving = false;
+                    resolve();
+                }, 1500);
+            });
+
+            return p;
+        },
+        toggleEdit: function() {
+            this.state.isEditing = true;
+        }
+    }
 }
 </script>

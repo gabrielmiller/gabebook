@@ -25,7 +25,7 @@
                 v-model="post">
             </markdown-editor>
         </div>
-        <button class="save-button" type="submit"><i class="fa fa-floppy-o"></i> Save</button>
+        <button class="primary-button save-button" type="submit"><i class="fa fa-floppy-o"></i> Save</button>
     </form>
 </template>
 
