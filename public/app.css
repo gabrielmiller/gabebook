@@ -3,6 +3,18 @@
     .markdown-editor i.separator {
         display: none;
     }
+
+    .input-wrapper input,
+    .input-wrapper select {
+        margin-right: 0;
+    }
+}
+
+@media screen and (min-width: 40em) {
+    .input-wrapper input,
+    .input-wrapper select {
+        margin-right: 13em;
+    }
 }
 
 :root {
@@ -102,7 +114,9 @@ label.hover:hover {
     z-index: 0;
 }
 
-input {
+input,
+select {
+    background-color: white;
     border: 1px solid #dddddd;
     border-radius: 2px;
     box-sizing: border-box;
@@ -191,4 +205,24 @@ input {
 
 .person-details {
     display: block;
+}
+
+.input-wrapper {
+    clear: both;
+    height: 3em;
+}
+
+.input-wrapper label {
+    float: right;
+    line-height: 2.5em;
+    margin-right: 1em;
+}
+
+.input-wrapper input,
+.input-wrapper select {
+    float: right;
+    height: 3.2em;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 16em;
 }

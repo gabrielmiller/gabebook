@@ -24,6 +24,7 @@
                     type="checkbox">
                 <ul class="accordion ease-slide">
                     <li v-if="model.person.age">Age: {{model.person.age}}</li>
+                    <li v-if="model.person.birthday">Born: {{model.person.birthday}}</li>
                     <li v-if="model.person.gender">Identifies as: {{model.person.gender}}</li>
                     <li v-if="model.person.knowFrom">Know from: {{model.person.knowFrom}}</li>
                     <li v-if="model.person.metPlace">Met at: {{model.person.metPlace}}</li>
@@ -53,7 +54,26 @@
 
         <div v-if="isEditing">
             <form v-on:submit="saveEdit">
-                Is editing!
+                <div class="input-wrapper">
+                    <input id="name" type="text" required>
+                    <label for="name">Name</label>
+                </div>
+                <div class="input-wrapper">
+                    <input id="birthday" type="date">
+                    <label for="birthday">Birthday</label>
+                </div>
+                <div class="input-wrapper">
+                    <select id="gender">
+                        <option value="" selected>-</option>
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                    </select>
+                    <label for="gender">Identifies as</label>
+                </div>
+                <div class="input-wrapper">
+                    <input id="metAt" type="text">
+                    <label for="metAt">Met at</label>
+                </div>
                 <button
                     class="primary-button save-button"
                     :disabled="isSaving"
