@@ -1,0 +1,6 @@
+FROM python:3.7.1-alpine3.8
+RUN apk add --no-cache bash
+COPY ./requirements.txt /tmp
+WORKDIR /tmp
+RUN pip install --no-cache-dir -r requirements.txt
+ENTRYPOINT python /var/www/htdocs/gabebook/server/app.py

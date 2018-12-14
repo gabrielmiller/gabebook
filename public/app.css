@@ -10,12 +10,12 @@
     }
 }
 
-@media screen and (min-width: 40em) {
+/*@media screen and (min-width: 40em) {
     .input-wrapper input,
     .input-wrapper select {
         margin-right: 13em;
     }
-}
+}*/
 
 :root {
     --color-primary: #1793d1;
@@ -208,12 +208,14 @@ select {
 }
 
 .input-wrapper {
+    /*
     clear: both;
     height: 3em;
+    */
 }
 
 .input-wrapper label {
-    float: right;
+    /*float: right;*/
     line-height: 2.5em;
     margin-right: 1em;
 }
@@ -222,7 +224,7 @@ select {
 .input-wrapper select {
     float: right;
     height: 3.2em;
-    margin-bottom: 0;
+    margin-bottom: 0; 
     margin-top: 0;
-    width: 16em;
+    width: 60%/*16em*/;
 }

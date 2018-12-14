@@ -1,0 +1,22 @@
+version: '3'
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile-webapp
+    container_name: api
+    volumes:
+     - /home/gabe/Code/gabebook:/var/www/htdocs/gabebook
+  reverseproxy:
+    build:
+      context: .
+      dockerfile: Dockerfile-reverseproxy
+    container_name: reverseproxy
+    links:
+     - webapp
+    ports:
+     - "80:80"
+     - "443:443"
+    restart: always
+    volumes:
+     - /home/gabe/Code/gabebook:/var/www/htdocs/gabebook

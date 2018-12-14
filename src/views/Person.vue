@@ -54,6 +54,48 @@
 
         <div v-if="isEditing">
             <form v-on:submit="saveEdit">
+                <!--
+                <div class="input-wrapper">
+                    <input id="test1" style="width:2em;" type="text" required>
+                    <label for="test1">2em</label>
+                </div>
+                <div class="input-wrapper">
+                    <input id="test2" style="width:4em;" type="text" required>
+                    <label for="test2">4em</label>
+                </div>
+                <div class="input-wrapper">
+                    <input id="test3" style="width:6em;" type="text" required>
+                    <label for="test3">6em</label>
+                </div>
+                <div class="input-wrapper">
+                    <input id="test4" style="width:8em;" type="text" required>
+                    <label for="test4">8em</label>
+                </div>
+                <div class="input-wrapper">
+                    <input id="test5" style="width:10em;" type="text" required>
+                    <label for="test5">10em</label>
+                </div>
+                <div class="input-wrapper">
+                    <input id="test6" style="width:12em;" type="text" required>
+                    <label for="test6">12em</label>
+                </div>
+                <div class="input-wrapper">
+                    <input id="test7" style="width:14em;" type="text" required>
+                    <label for="test7">14em</label>
+                </div>
+                <div class="input-wrapper">
+                    <input id="test8" style="width:16em;" type="text" required>
+                    <label for="test8">16em</label>
+                </div>
+                <div class="input-wrapper">
+                    <input id="test9" style="width:18em;" type="text" required>
+                    <label for="test9">18em</label>
+                </div>
+                <div class="input-wrapper">
+                    <input id="test10" style="width:20em;" type="text" required>
+                    <label for="test10">20em</label>
+                </div>
+                -->
                 <div class="input-wrapper">
                     <input id="name" type="text" required>
                     <label for="name">Name</label>
