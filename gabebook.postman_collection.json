@@ -1,0 +1,509 @@
+{
+	"info": {
+		"_postman_id": "fdcceb2e-991c-4c6d-86b6-61695cbfff11",
+		"name": "gabebook",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET people",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{api}}/person",
+					"protocol": "http",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"person"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET people",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{api}}}/v1/people",
+							"protocol": "http",
+							"host": [
+								"{{api}}}"
+							],
+							"path": [
+								"v1",
+								"people"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": [],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "GET entry",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://{{api}}/entry",
+					"protocol": "http",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"entry"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET people",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{api}}}/v1/people",
+							"protocol": "http",
+							"host": [
+								"{{api}}}"
+							],
+							"path": [
+								"v1",
+								"people"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": [],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "DELETE person",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "http://{{api}}/person/1",
+					"protocol": "http",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"person",
+						"1"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET people",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{api}}}/v1/people",
+							"protocol": "http",
+							"host": [
+								"{{api}}}"
+							],
+							"path": [
+								"v1",
+								"people"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": [],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "DELETE entry",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "http://{{api}}/entry/3",
+					"protocol": "http",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"entry",
+						"3"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET people",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{api}}}/v1/people",
+							"protocol": "http",
+							"host": [
+								"{{api}}}"
+							],
+							"path": [
+								"v1",
+								"people"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": [],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "POST person",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\": \"Test\",\n\t\"lastName\": \"Two\",\n\t\"metOn\": \"2018-12-12\"\n}"
+				},
+				"url": {
+					"raw": "http://{{api}}/person",
+					"protocol": "http",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"person"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET people",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{api}}}/v1/people",
+							"protocol": "http",
+							"host": [
+								"{{api}}}"
+							],
+							"path": [
+								"v1",
+								"people"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": [],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "POST entry",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Test two\",\n\t\"date\": \"2018-12-12\",\n\t\"description\": \"test\",\n\t\"type\": \"test\",\n\t\"location\": \"testville\"\n}"
+				},
+				"url": {
+					"raw": "http://{{api}}/entry",
+					"protocol": "http",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"entry"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET people",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{api}}}/v1/people",
+							"protocol": "http",
+							"host": [
+								"{{api}}}"
+							],
+							"path": [
+								"v1",
+								"people"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": [],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "PATCH person",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"lastName\": \"Two-edited\",\n\t\"jobTitle\": \"Test job title\"\n}"
+				},
+				"url": {
+					"raw": "http://{{api}}/person/2",
+					"protocol": "http",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"person",
+						"2"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET people",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{api}}}/v1/people",
+							"protocol": "http",
+							"host": [
+								"{{api}}}"
+							],
+							"path": [
+								"v1",
+								"people"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": [],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "PATCH entry",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"personId\": 2,\n\t\"description\": \"testing..\"\n}"
+				},
+				"url": {
+					"raw": "http://{{api}}/entry/2",
+					"protocol": "http",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"entry",
+						"2"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET people",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://{{api}}}/v1/people",
+							"protocol": "http",
+							"host": [
+								"{{api}}}"
+							],
+							"path": [
+								"v1",
+								"people"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": [],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
