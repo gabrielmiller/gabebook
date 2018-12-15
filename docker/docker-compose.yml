@@ -2,9 +2,15 @@ version: '3'
 services:
   webapp:
     build:
+      args:
+        - GB_SERVE_PATH=/var/www/htdocs/gabebook/server
       context: .
       dockerfile: Dockerfile-webapp
     container_name: api
+    environment:
+      - GB_APP_ROOT=/var/www/htdocs/gabebook
+      - GB_DB_PATH=data/gabebook.db
+      - GB_SERVE_PATH=/var/www/htdocs/gabebook/server
     volumes:
      - /home/gabe/Code/gabebook:/var/www/htdocs/gabebook
   reverseproxy:

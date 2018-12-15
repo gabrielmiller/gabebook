@@ -19,11 +19,17 @@ Note that nginx is configured for development.
 
 # Development
 
-Change directories into the docker dir to control containers through docker compose:
+Change directories into the docker dir to control and monitor containers with docker and docker compose commands:
 
     cd docker
     sudo docker-compose up -d
+    sudo docker attach api
     sudo docker-compose down
     etc.
+
+And if changing dockerfiles...
+
+    sudo docker image rm docker_webapp
+    sudo docker image rm docker_reverseproxy
 
 Access the development environment at app.gbd.com while the reverse proxy and web app are running.

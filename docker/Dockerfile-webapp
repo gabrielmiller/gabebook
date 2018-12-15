@@ -3,4 +3,8 @@ RUN apk add --no-cache bash
 COPY ./requirements.txt /tmp
 WORKDIR /tmp
 RUN pip install --no-cache-dir -r requirements.txt
-ENTRYPOINT python /var/www/htdocs/gabebook/server/app.py
+
+ARG GB_SERVE_PATH
+WORKDIR ${GB_SERVE_PATH}
+#ENTRYPOINT gunicorn app:app -b 0.0.0.0:8000
+CMD tail -f /dev/null

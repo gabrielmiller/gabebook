@@ -1,13 +1,17 @@
 from sqlalchemy import Column, Date, Integer, String
-from sqlalchemy.orm import relationship
-from models import db
+from sqlalchemy.orm import relationship, validates
+from sqlalchemy.ext.declarative import declarative_base
 
-class Person(db.Model):
+from models import entry
+
+Base = declarative_base()
+
+class Person(Base):
     __tablename__ = 'people'
 
     id = Column(Integer, primary_key=True)
-    firstName = Column(String, nullable=False)
-    lastName = Column(String, nullable=False)
+    firstName = Column(String, nullable=True)
+    lastName = Column(String, nullable=True)
     gender = Column(String, nullable=True)
     metOn = Column(Date, nullable=True)
     metPlace = Column(String, nullable=True)

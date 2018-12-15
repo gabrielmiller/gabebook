@@ -1,45 +1,18 @@
-from models import db, entry, person
-from flask import Flask, send_from_directory
+import falcon
+import os
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../data/gabebook.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+from falcon_autocrud.middleware import Middleware
+from sqlalchemy import create_engine
 
-STATIC_DIR = '../static'
+from resources import entry, person
 
-with app.app_context():
-    db.init_app(app)
-    #db.create_all()
+app = falcon.API(
+    middleware=[Middleware()]
+)
 
-@app.route('/')
-def home():
-    return send_from_directory(STATIC_DIR + '/html', 'index.html')
+db = create_engine('sqlite:///' + os.getenv('GB_APP_ROOT') + '/' + os.getenv('GB_DB_PATH'), echo=True)
 
-@app.route('/api/v1/p')
-def people():
-    if request.method == 'POST':
-        # parse body, create a new entry, return new person
-        return ''
-    elif request.method == 'PUT':
-        # parse body, find person, update entry, return updated person
-        return ''
-    else:
-        return ''
-
-@app.route('/api/v1/p/<int:person>')
-def person(person):
-    if request.method == 'GET':
-        return ''
-    else:
-        return ''
-
-@app.route('/css/<path:filename>')
-def send_css(filename):
-    return send_from_directory(STATIC_DIR+'/css', filename)
-
-@app.route('/js/<path:filename>')
-def send_js(filename):
-    return send_from_directory(STATIC_DIR+'/js', filename)
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port='8000', debug=True)
+app.add_route('/entry', entry.EntryCollectionResource(db))
+app.add_route('/entry/{id}', entry.EntryResource(db))
+app.add_route('/person', person.PersonCollectionResource(db))
+app.add_route('/person/{id}', person.PersonResource(db))
