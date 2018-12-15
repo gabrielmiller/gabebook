@@ -1,5 +1,4 @@
 from sqlalchemy import Column, Date, Integer, String
-from sqlalchemy.orm import relationship, validates
 from sqlalchemy.ext.declarative import declarative_base
 
 from models import entry
@@ -30,4 +29,3 @@ class Person(Base):
 
     def __repr__(self):
         return "<Person(firstName='" + self.firstName + "', lastName='" + self.lastName + "')>"
-
