@@ -42,7 +42,7 @@
 import mockData from './mockData';
 
 export default {
-    beforeCreate() {
+    beforeRouteEnter() {
         return mockData.fetchAllPeople().then((result) => {
             for (let person of result) {
                 this.people.push(person);

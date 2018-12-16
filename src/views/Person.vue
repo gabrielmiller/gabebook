@@ -133,34 +133,15 @@
 </template>
 
 <script>
-import mockData from '../mockData';
-
-function loadPerson(personId) {
-    let p = new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(mockData.getPerson(personId));
-        }, 1500);
-    });
-
-    return p;
-}
 export default {
-    beforeRouteEnter(to, from, next) {
-        loadPerson(to.params.personId).then((person => {
-            next(vm => {
-                vm.model.person = person;
-            });
-        }));
-    },
-    beforeRouteUpdate(to, from, next) {
-        loadPerson(to.params.personId).then((person => {
-            next(vm => {
-                vm.model.person = person;
-            });
-        }));
-    },
     created() {
         this.people = this.$parent.people;
+        for (const i in this.$parent.people) {
+            if (this.$parent.people[i].id !== this.$route.params.personId) {
+                continue;
+            }
+            this.person = this.$parent.people[i];
+        }
     },
     computed: {
         isEditing: function() {
