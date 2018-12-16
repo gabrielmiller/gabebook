@@ -33,6 +33,7 @@ export default {
     data() {
         return {
             editorConfig: {
+                autoDownloadFontAwesome: false,
                 toolbar: ["bold", "italic", "heading", "|", "quote", "code", "unordered-list", "ordered-list", "|", "link", "image", "|", "preview"],
             },
             entryId: this.$route.params.entryId,
